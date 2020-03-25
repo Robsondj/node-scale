@@ -1,0 +1,26 @@
+{
+  "name": "node-scale",
+  "version": "1.0.0",
+  "description": "A node API to serve scales of a react app",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon server.js"
+  },
+  "author": "Robson de Jesus",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "1.18.2",
+    "compression": "1.7.2",
+    "cookie-parser": "1.4.3",
+    "cors": "2.8.4",
+    "express": "4.16.3",
+    "express-jwt": "5.3.1",
+    "helmet": "3.12.0",
+    "jsonwebtoken": "8.2.1",
+    "mongoose": "5.0.16",
+    "node-restful": "0.2.6"
+  },
+  "devDependencies": {
+    "nodemon": "1.14.11"
+  }
+}
