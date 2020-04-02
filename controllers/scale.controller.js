@@ -61,7 +61,7 @@ const listToApp = (req, res) => {
         objScale.departamentos.push({departamento: scale.department, escalados: scale.scaleds});
       }
     });
-    res.json(scales)
+    res.json(arrScales)
   }).select('day department scaleds updated created')
 }
 
