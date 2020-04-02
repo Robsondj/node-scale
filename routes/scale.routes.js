@@ -8,6 +8,9 @@ router.route('/api/scales')
   .get(scaleCtrl.list)
   .post(scaleCtrl.create)
 
+router.route('/api/scalestoapp')
+  .get(scaleCtrl.listToApp)
+
 
 router.route('/api/scales/:scaleId')
   .get(authCtrl.requireSignin, scaleCtrl.read)

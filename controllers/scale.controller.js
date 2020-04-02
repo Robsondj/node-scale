@@ -45,6 +45,26 @@ const list = (req, res) => {
   }).select('day department scaleds updated created')
 }
 
+const listToApp = (req, res) => {
+  Scale.find((err, scales) => {
+    if (err) {
+      return res.status(400).json({
+        error: errorHandler.getErrorMessage(err)
+      })
+    }
+    arrScales = [];
+    scales.forEach((scale) => {
+      let objScale = arrScales.find((obj) => obj.periodo === scale.day);
+      if(typeof objScale === 'undefined') {
+        arrScales.push({periodo: scale.day, departamentos: [{departamento: scale.department, escalados: scale.scaleds}]});
+      } else {
+        objScale.departamentos.push({departamento: scale.department, escalados: scale.scaleds});
+      }
+    });
+    res.json(scales)
+  }).select('day department scaleds updated created')
+}
+
 const update = (req, res, next) => {
   let scale = req.scale
   scale = _.extend(scale, req.body)
@@ -79,5 +99,6 @@ module.exports = {
   read,
   list,
   remove,
-  update
+  update,
+  listToApp
 }
